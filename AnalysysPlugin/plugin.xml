@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="AnalysysAgent" 
+        version="4.0.6">
+    <name>AnalysysAgent</name>
+    <description>Description</description>
+    <js-module src="www/mainPhoneGap.js" name="AnalysysAgent" >
+         <clobbers target="AnalysysAgent" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        
+        <header-file src="src/ios/AnalysysPlugin.h" />
+        <source-file src="src/ios/AnalysysPlugin.m" />
+        <source-file src="src/ios/AnalysysAgent.framework" framework="true"/>
+        
+        <config-file target="config.xml" parent="/widget/plugins">
+            <feature name="AnalysysPlugin">
+                <param name="ios-package" value="AnalysysPlugin"/>
+            </feature>
+        </config-file>
+        
+        <framework src="CoreMotion.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="Security.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="AdSupport.framework" />
+        <framework src="libz.tbd" />
+        <framework src="libicucore.tbd" />
+    </platform>
+</plugin>
